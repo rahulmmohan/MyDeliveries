@@ -43,4 +43,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha03'
     // Paging
     implementation 'androidx.paging:paging-runtime:2.1.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }

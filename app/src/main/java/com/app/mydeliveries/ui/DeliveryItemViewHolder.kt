@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mydeliveries.R
 import com.app.mydeliveries.datasource.model.Delivery
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.delivery_list_item.view.*
 
 class DeliveryItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -14,7 +15,11 @@ class DeliveryItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(data: Delivery?) {
         this.data = data
         data?.let {
-            view.descriptionTextView.text = it.description + " "+ it.id ?: ""
+            view.descriptionTextView.text = it.description ?: ""
+            Glide
+                .with(view.context)
+                .load(it.imageUrl)
+                .into(view.receiverImageView)
         }
     }
 
