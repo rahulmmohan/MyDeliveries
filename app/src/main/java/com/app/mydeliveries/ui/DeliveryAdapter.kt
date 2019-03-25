@@ -9,7 +9,7 @@ import com.app.mydeliveries.datasource.model.Delivery
 class DeliveryAdapter : PagedListAdapter<Delivery, RecyclerView.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return DeliveryItemViewHolder(parent)
+        return DeliveryItemViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

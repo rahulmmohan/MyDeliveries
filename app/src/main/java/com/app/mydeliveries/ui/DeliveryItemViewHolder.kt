@@ -14,7 +14,7 @@ class DeliveryItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(data: Delivery?) {
         this.data = data
         data?.let {
-            view.descriptionTextView.text = it.description ?: ""
+            view.descriptionTextView.text = it.description + " "+ it.id ?: ""
         }
     }
 
