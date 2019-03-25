@@ -1,12 +1,15 @@
 package com.app.mydeliveries.datasource.paging
 
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.app.mydeliveries.datasource.model.Delivery
 
 class DeliveryListDataSourceFactory : DataSource.Factory<Int, Delivery>() {
-    private lateinit var deliveryListDataSource: DeliveryListDataSource
+    var dataSource: MutableLiveData<DeliveryListDataSource> = MutableLiveData()
+
     override fun create(): DataSource<Int, Delivery> {
-        deliveryListDataSource = DeliveryListDataSource()
+        val deliveryListDataSource = DeliveryListDataSource()
+        dataSource.postValue(deliveryListDataSource)
         return deliveryListDataSource
     }
 }
