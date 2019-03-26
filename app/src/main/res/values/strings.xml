@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Things to Deliver</string>
+    <string name="app_name">My Deliveries</string>
+    <string name="title_activity_delivery_list">Things to Deliver</string>
     <string name="title_activity_delivery_detail">Delivery Details</string>
     <string name="receiver_image">receiver Image</string>
+    <string name="no_deliveries_for_you">No Deliveries for you</string>
 </resources>

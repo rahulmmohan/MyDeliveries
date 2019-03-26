@@ -56,7 +56,7 @@ class DeliveryListDataSource(
         apiClient.apiService.getAllDeliveries(offset, limit)
             .enqueue(object : Callback<List<Delivery>> {
                 override fun onFailure(call: Call<List<Delivery>>?, t: Throwable?) {
-                    requestDataFromDB(offset,limit,callback)
+                    dataRequestState.postValue(DataRequestState(DataRequestState.Status.FAILED))
                 }
 
                 override fun onResponse(call: Call<List<Delivery>>?, response: Response<List<Delivery>>?) {
@@ -82,6 +82,10 @@ class DeliveryListDataSource(
         dataRequestState.postValue(DataRequestState.LOADING)
         val deliveryItems = appDatabase.deliveryDao().getDeliveryItems(offset, limit)
         callback.onResult(deliveryItems)
-        dataRequestState.postValue(DataRequestState.LOADED)
+        if (deliveryItems.isEmpty()) {
+            dataRequestState.postValue(DataRequestState(DataRequestState.Status.FAILED))
+        } else {
+            dataRequestState.postValue(DataRequestState.LOADED)
+        }
     }
 }

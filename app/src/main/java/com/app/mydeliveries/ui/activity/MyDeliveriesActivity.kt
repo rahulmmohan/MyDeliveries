@@ -23,6 +23,9 @@ class MyDeliveriesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_deliveries)
+        supportActionBar?.let {
+            it.setTitle(R.string.title_activity_delivery_list)
+        }
         deliveryViewModel = ViewModelProviders.of(this).get(DeliveryViewModel::class.java)
         setRecyclerView()
         //Observing datarequest changes
@@ -47,6 +50,9 @@ class MyDeliveriesActivity : AppCompatActivity() {
         if (it.status == DataRequestState.Status.SUCCESS || it.status == DataRequestState.Status.FAILED) {
             isInitialLoading = false
             progressBar.visibility = View.GONE
+        }
+        if(it.status == DataRequestState.Status.FAILED){
+            errorTextView.visibility = View.VISIBLE
         }
     }
 
