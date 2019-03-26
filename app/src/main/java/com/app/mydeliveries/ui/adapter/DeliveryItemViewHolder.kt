@@ -11,17 +11,21 @@ import com.app.mydeliveries.ui.activity.DeliveryDetailActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.delivery_list_item.view.*
 
-class DeliveryItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+class DeliveryItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private var data: Delivery? = null
-
+    /**
+     * Binding data to view
+     */
     fun bind(data: Delivery?) {
         this.data = data
         data?.let {
 
-            view.descriptionTextView.text = it.getDeliveryDetail()
+            view.descriptionTextView.text = it.description
+            view.locationTextView.text = it.location?.address ?: "NA"
             Glide
                 .with(view.context)
                 .load(it.imageUrl)
+                .placeholder(R.drawable.ic_action_person)
                 .into(view.receiverImageView)
         }
         view.setOnClickListener {

@@ -14,6 +14,4 @@ interface DeliveriesDao {
     @Query("SELECT * FROM Deliveries LIMIT :limit OFFSET :offset")
     fun getDeliveryItems(offset: Int, limit: Int): List<Delivery>
 
-    @Query("SELECT * FROM Deliveries ")
-    fun getAll(): List<Delivery>
 }

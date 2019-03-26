@@ -8,8 +8,10 @@ import com.app.mydeliveries.R
 import com.app.mydeliveries.datasource.paging.DataRequestState
 import kotlinx.android.synthetic.main.data_request_state_item.view.*
 
-class DataRequestStateItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-
+class DataRequestStateItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    /**
+     * Binding data to view
+     */
     fun bind(networkState: DataRequestState?) {
         if (networkState != null && networkState.status === DataRequestState.Status.RUNNING) {
             view.progress_bar.visibility = View.VISIBLE

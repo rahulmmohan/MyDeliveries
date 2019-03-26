@@ -24,15 +24,4 @@ class Delivery : Serializable {
     @SerializedName("location")
     @Embedded
     var location: Location? = null
-
-    fun getDeliveryDetail(): String {
-        var deliverAt = ""
-        location?.let {
-            deliverAt = " at ${it.address}"
-        }
-        description?.let {
-            return description + deliverAt
-        }
-        return ""
-    }
 }

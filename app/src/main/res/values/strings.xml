@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Things to Deliver</string>
-    <string name="title_activity_maps">Map</string>
     <string name="title_activity_delivery_detail">Delivery Details</string>
+    <string name="receiver_image">receiver Image</string>
 </resources>

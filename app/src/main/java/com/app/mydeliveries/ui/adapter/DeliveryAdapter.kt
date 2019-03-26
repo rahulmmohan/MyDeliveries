@@ -37,13 +37,16 @@ class DeliveryAdapter : PagedListAdapter<Delivery, RecyclerView.ViewHolder>(diff
         }
     }
 
+    /**
+     * handling pagination loading animation by checking previous datarequest and new datarequest.
+     */
     fun setDataRequestState(newDataRequestState: DataRequestState) {
         val previousState = this.dataRequestState
-        val previousLodingVisible = isLoadingVisible()
+        val previousLoadingVisible = isLoadingVisible()
         this.dataRequestState = newDataRequestState
         val newLoadingVisible = isLoadingVisible()
-        if (previousLodingVisible != newLoadingVisible) {
-            if (previousLodingVisible) {
+        if (previousLoadingVisible != newLoadingVisible) {
+            if (previousLoadingVisible) {
                 notifyItemRemoved(itemCount)
             } else {
                 notifyItemInserted(itemCount)

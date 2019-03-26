@@ -6,7 +6,6 @@ class DataRequestState(val status: Status) {
         val LOADING: DataRequestState = DataRequestState(Status.RUNNING)
 
     }
-
     enum class Status {
         RUNNING,
         SUCCESS,

@@ -56,7 +56,7 @@ class DeliveryListDataSource(
         apiClient.apiService.getAllDeliveries(offset, limit)
             .enqueue(object : Callback<List<Delivery>> {
                 override fun onFailure(call: Call<List<Delivery>>?, t: Throwable?) {
-                    dataRequestState.postValue(DataRequestState(DataRequestState.Status.FAILED))
+                    requestDataFromDB(offset,limit,callback)
                 }
 
                 override fun onResponse(call: Call<List<Delivery>>?, response: Response<List<Delivery>>?) {

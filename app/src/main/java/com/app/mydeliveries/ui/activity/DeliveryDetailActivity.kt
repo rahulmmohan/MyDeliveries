@@ -37,12 +37,17 @@ class DeliveryDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         setDeliveryDetails()
     }
 
+    /**
+     * Updating UI with delivery details
+     */
     private fun setDeliveryDetails() {
         deliveryData?.let {
-            descriptionTextView.text = it.getDeliveryDetail()
+            descriptionTextView.text = it.description
+            locationTextView.text = it.location?.address ?: "NA"
             Glide
                 .with(this@DeliveryDetailActivity)
                 .load(it.imageUrl)
+                .placeholder(R.drawable.ic_action_person)
                 .into(receiverImageView)
         }
     }
