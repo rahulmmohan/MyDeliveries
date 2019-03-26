@@ -1,4 +1,4 @@
-package com.app.mydeliveries.ui
+package com.app.mydeliveries.ui.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter

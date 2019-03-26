@@ -1,9 +1,10 @@
 package com.app.mydeliveries.datasource.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
-class Location {
+class Location : Serializable {
     @SerializedName("lat")
     var lat: Double? = null
     @SerializedName("lng")
