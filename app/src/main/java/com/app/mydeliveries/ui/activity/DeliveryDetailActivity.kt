@@ -1,6 +1,7 @@
 package com.app.mydeliveries.ui.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.app.mydeliveries.R
 import com.app.mydeliveries.datasource.model.Delivery
@@ -23,6 +24,9 @@ class DeliveryDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delivery_detail)
         setSupportActionBar(toolbar)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+        }
         intent.extras?.let {
             deliveryData = it.get("item") as Delivery
         }
@@ -63,5 +67,12 @@ class DeliveryDetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel))
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

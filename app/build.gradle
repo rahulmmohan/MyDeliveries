@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def GOOGLE_MAP_KEY =  GoogleMapApiKey ?:"define your google map api key in gradle.properties"
 
@@ -26,7 +27,9 @@ android {
 }
 ext {
     retrofitVersion = "2.2.0"
+    room_version = "2.1.0-alpha05"
 }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -50,4 +53,7 @@ dependencies {
     implementation 'androidx.paging:paging-runtime:2.1.0'
     //glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    //room
+    implementation "androidx.room:room-runtime:${room_version}"
+    kapt "androidx.room:room-compiler:${room_version}"
 }

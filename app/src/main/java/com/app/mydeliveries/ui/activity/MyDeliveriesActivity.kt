@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_my_deliveries.*
 
 
 class MyDeliveriesActivity : AppCompatActivity() {
-    lateinit var deliveryViewModel: DeliveryViewModel
+    private lateinit var deliveryViewModel: DeliveryViewModel
     private lateinit var deliveryAdapter: DeliveryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
